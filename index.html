@@ -55,9 +55,17 @@
 
     function demoDOM() {
       DOM.hide('.klass')
-      DOM.show('.klass')
-      DOM.removeClass('.klass', 'shaded')
-      DOM.addClass('.klass', 'shaded')
+
+      setTimeout(function() {
+        DOM.show('.klass')
+
+        DOM.addClass('.klass', 'shaded')
+
+        setTimeout(function() {
+          DOM.removeClass('.klass', 'shaded')
+        }, 1000)
+        
+      }, 1000)
     }
 
     function demoEventDispatcher() {
@@ -68,7 +76,7 @@
 
     function demoAjax() {
       AjaxWrapper.request({
-        url: 'http://localhost:3000/',
+        url: 'http://youmightnotneedjquery.com',
         type: 'GET',
         success: function(data) {
           console.log("Success: ", data)
